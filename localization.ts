@@ -12,12 +12,12 @@ export function getLocalizedText(key: string, language: string): string {
     "ribbonTooltip": {
       "en": "Commodity: Calculate Vault Value",
       "ja": "Commodity：ボールトの価値を計算",
-      "id": "Commodity: Kalkulasikan Nilai Vault",
+      "id": "Commodity: Kalkulasikan Nilai Berangkas",
     },
     "modalTitle": {
       "en": "Calculated Vault Value:",
       "ja": "計算されたボールトの価値:",
-      "id": "Nilai Kalkulasi Vault:",
+      "id": "Nilai Kalkulasi Berangkas:",
     },
     "calculatingNotice": {
       "en": "Commodity (Legacy): Calculating the vault value...",
@@ -32,22 +32,22 @@ export function getLocalizedText(key: string, language: string): string {
     "currencySetting": {
       "en": "Currency Preference",
       "ja": "通貨の設定",
-      "id": "Currency Preference"
+      "id": "Preferensi Mata Uang"
     },
     "currencyDescription": {
       "en": "Select the preferred currency that can be used for the value calculation",
       "ja": "価値計算に使用する優先通貨を選択してください",
-      "id": "Select the preferred currency that can be used for the value calculation"
+      "id": "Pilih preferensi mata uang yang bisa digunakan untuk perhitungan"
     },
     "languageSetting": {
       "en": "Language Preference",
       "ja": "言語の設定",
-      "id": "Language Preference"
+      "id": "Preferensi Bahasa"
     },
     "languageDescription": {
       "en": "Select the preferred language for the plugin interface",
       "ja": "プラグインのインターフェースに使用する優先言語を選択してください",
-      "id": "Select the preferred language for the plugin interface"
+      "id": "Pilih preferensi bahasa untuk plugin antarmuka"
     }
   };
 
