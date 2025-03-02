@@ -5,10 +5,6 @@
   If you're willing to add more currencies, please add some options to the dropdown.
   Once done, edit the main.ts file and add the symbol of the added currency.
 
-  For translation:
-  - There's no need to translate commodity in the specified language.
-  - The term "legacy" can be voluntary, meaning that it's your choice whether to translate it or not.
-
 */
 
 import { CommoditySettingsTab } from "./options";
