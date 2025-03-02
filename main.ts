@@ -161,7 +161,12 @@ function getCurrencySymbol(currency: string): string {
     "HKD": "HK$",
     "CAD": "CA$",
     "MYR": "RM ",
-    "UAH": "₴"
+    "UAH": "₴",
+    "NZD": "NZ\$",
+    "CHF": "Fr ",
+    "TWD": "NT\$",
+    "INR": "₹",
+    "BND": "B$"
   };
   return symbols[currency] || "$";
 }
