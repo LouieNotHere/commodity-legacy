@@ -22,7 +22,8 @@ export default class CommodityPlugin extends Plugin {
     console.log("Commodity Plugin (Legacy) Loaded");
 
     await this.loadSettings();
-    this.language = this.app.vault.getConfig("language") || "en";
+    // this.language = this.app.vault.getConfig("language") || "en";
+    this.language = (this.app as any).appId || "en";
     this.addSettingTab(new CommoditySettingsTab(this.app, this));
 
     console.log(`Current currency: ${this.settings.currency}`);
