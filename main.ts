@@ -169,7 +169,8 @@ function getCurrencySymbol(currency: string): string {
     "CHF": "Fr ",
     "TWD": "NT\$",
     "INR": "₹",
-    "BND": "B$"
+    "BND": "B$",
+    "IRR": "Rls"
   };
   return symbols[currency] || "$";
 }
