@@ -30,4 +30,4 @@ This is not only for minor updates, but add some minor features and preserve the
 2. Once enabled, go to the ribbon and look for **Commodity (Legacy): Calculate Vault Value**.
 
 # Beta Testing
-This plugin is currently open for beta testing. If you want early access to the latest fixes and additions, please check the [actions tab](https://github.com/LouieNotHere/commodity/actions).
+This plugin is currently open for beta testing. If you want early access to the latest fixes and additions, please check the [actions tab](https://github.com/LouieNotHere/commodity-legacy/actions).
