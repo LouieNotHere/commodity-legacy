@@ -89,20 +89,18 @@ export class CommoditySettingsTab extends PluginSettingTab {
       });
 
     new Setting(containerEl)
-      .setName("Language Preference")
-      .setDesc("Select the preferred language for the plugin interface")
-      .addDropdown(dropdown => {
-        dropdown.addOptions({
-          "en": "EN - English",
-          "ja": "JA - 日本語",
-          "id": "ID - Bahasa Indonesia"
-        });
+  .setName("Language Preference")
+  .setDesc("Select the preferred language for the plugin interface")
+  .addDropdown(dropdown => {
+    dropdown.addOptions({
+      "en": "EN - English",
+      "ja": "JA - 日本語",
+      "id": "ID - Bahasa Indonesia"
+    });
 
-        dropdown.setValue(this.plugin.settings.language);
-        dropdown.onChange(async (value) => {
-          this.plugin.settings.language = value;
-          await this.plugin.saveSettings();
-        });
-      });
-  }
-}
+    dropdown.setValue(this.plugin.settings.language);
+    dropdown.onChange(async (value) => {
+      this.plugin.settings.language = value;
+      await this.plugin.saveSettings();
+    });
+  });
