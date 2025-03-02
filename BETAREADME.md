@@ -1,4 +1,4 @@
-# Commodity (Legacy) Plugin v1.0.0 (Beta) - Precautions & Instructions    
+# Commodity (Legacy) Plugin v1.1.0 (Beta) - Precautions & Instructions    
 
 ### ⚠️ Notes Before Using
 - You are running Commodity (Legacy) in version v1.1.0b, meaning that you are running a beta version of this plugin before the release.
