@@ -6,7 +6,8 @@
   - Discord: @paytouse
 
 */
-function getLocalizedText(key: string, language: string): string {
+
+export function getLocalizedText(key: string, language: string): string {
   const LOCALIZED_STRINGS: Record<string, Record<string, string>> = {
     "ribbonTooltip": {
       "en": "Commodity: Calculate Vault Value",
