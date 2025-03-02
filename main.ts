@@ -149,17 +149,17 @@ async function getVaultAgeInDays(vault: Vault): Promise < number > {
 
 function getCurrencySymbol(currency: string): string {
   const symbols: Record < string, string > = {
-    "USD": "$",
-    "JPY": "¥",
+    "USD": "US$",
+    "JPY": "JP¥",
     "PHP": "₱",
     "IDR": "RP ",
     "EUR": "€",
     "GBP": "£",
     "KRW": "₩",
-    "CNY": "¥",
-    "AUD": "$",
-    "HKD": "$",
-    "CAD": "$",
+    "CNY": "CN¥",
+    "AUD": "AU$",
+    "HKD": "HK$",
+    "CAD": "CA$",
     "MYR": "RM ",
     "UAH": "₴"
   };
