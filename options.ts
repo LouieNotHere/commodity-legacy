@@ -30,7 +30,12 @@ export const CURRENCY_MULTIPLIERS: Record < string, number > = {
   "HKD": 7.8,
   "CAD": 1.35,
   "MYR": 4.7,
-  "UAH": 38
+  "UAH": 38,
+  "NZD": 1.6,
+  "CHF": 0.9,
+  "TWD": 31,
+  "INR": 83,
+  "BND": 1.35
 };
 
 export class CommoditySettingsTab extends PluginSettingTab {
@@ -57,14 +62,19 @@ export class CommoditySettingsTab extends PluginSettingTab {
           "PHP": "PHP - Philippine Peso",
           "IDR": "IDR - Indonesian Rupiah",
           "EUR": "EUR - Euro",
-          "GBP": "GBP - British Pound",
+          "GBP": "GBP - Pound Sterling",
           "KRW": "KRW - South Korean Won",
           "CNY": "CNY - Chinese Yuan",
           "AUD": "AUD - Australian Dollar",
           "HKD": "HKD - Hong Kong Dollar",
           "CAD": "CAD - Canadian Dollar",
           "MYR": "MYR - Malaysian Ringgit",
-          "UAH": "UAH - Ukrainian Hryvnia"
+          "UAH": "UAH - Ukrainian Hryvnia",
+          "NZD": "NZD - New Zealand Dollar",
+          "CHF": "CHF - Swiss Franc",
+          "TWD": "TWD - New Taiwan Dollar",
+          "INR": "INR - Indian Rupee",
+          "BND": "BND - Brunei Dollar"
         });
         
         dropdown.setValue(this.plugin.settings.currency);
