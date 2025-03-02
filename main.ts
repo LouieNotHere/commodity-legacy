@@ -11,6 +11,7 @@
 
 import { CommoditySettingsTab, DEFAULT_SETTINGS, CURRENCY_MULTIPLIERS, CommoditySettings } from "./options";
 import { App, Plugin, Modal, Vault, Notice, TFile } from "obsidian";
+import { abbreviateNumber } from "./abbrNum";
 
 export default class CommodityPlugin extends Plugin {
   settings: CommoditySettings;
@@ -71,8 +72,10 @@ class VaultValueModal extends Modal {
     var formattedValue: string = formatter.format(truncatedValue);
     
     var valueText: string = `${currencySymbol}${this.vaultValue.toFixed(2)}`;
-    
-    if (this.vaultValue >= 1000) {
+
+    if (this.vaultValue >= 1000000) {
+      valueText = `${currencySymbol}${abbreviateNumber(truncatedValue)}`;
+    } else if (this.vaultValue >= 1000) {
       valueText = `${currencySymbol}${formattedValue}`;
     }
     
