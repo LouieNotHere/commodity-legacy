@@ -31,5 +31,5 @@ export function getLocalizedText(key: string, language: string): string {
     }
   };
 
-  return localizedStrings[key]?.[language] || localizedStrings[key]?.["en"] || key;
+  return LOCALIZED_STRINGS] || localizedStrings[key]?.["en"] || key;
 }
