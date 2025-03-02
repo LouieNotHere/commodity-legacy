@@ -19,25 +19,24 @@ export default class CommodityPlugin extends Plugin {
   language: string;
 
   async onload() {
-    console.log("Commodity Plugin (Legacy) Loaded");
+  console.log("Commodity Plugin (Legacy) Loaded");
 
-    await this.loadSettings();
-    // this.language = this.app.vault.getConfig("language") || "en";
-    this.language = (this.app as any).appId || "en";
-    this.addSettingTab(new CommoditySettingsTab(this.app, this));
+  await this.loadSettings();
+  this.language = this.settings.language || "en"; // Load user's preferred language or default to 'en'
+  this.addSettingTab(new CommoditySettingsTab(this.app, this));
 
-    console.log(`Current currency: ${this.settings.currency}`);
-    console.log(`Detected Language: ${this.language}`);
+  console.log(`Current currency: ${this.settings.currency}`);
+  console.log(`Selected Language: ${this.language}`);
 
-    this.addRibbonIcon(
-      "lucide-calculator",
-      getLocalizedText("ribbonTooltip", this.language),
-      async () => {
-        const vaultStats = await calculateVaultStats(this.app.vault);
-        const vaultValue = await calculateVaultValue(vaultStats, this.settings.currency, this.app.vault);
-        new VaultValueModal(this.app, vaultValue, this.settings.currency, this.language).open();
-      }
-    );
+  this.addRibbonIcon(
+    "lucide-calculator",
+    getLocalizedText("ribbonTooltip", this.language),
+    async () => {
+      const vaultStats = await calculateVaultStats(this.app.vault);
+      const vaultValue = await calculateVaultValue(vaultStats, this.settings.currency, this.app.vault);
+      new VaultValueModal(this.app, vaultValue, this.settings.currency, this.language).open();
+    }
+  );
   }
 
   async loadSettings() {
