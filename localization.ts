@@ -28,6 +28,26 @@ export function getLocalizedText(key: string, language: string): string {
       "en": "Total CPU Time:",
       "ja": "合計CPU時間:",
       "id": "Total Waktu CPU:",
+    },
+    "currencySetting": {
+      "en": "Currency Preference",
+      "ja": "通貨の設定",
+      "id": "Currency Preference"
+    },
+    "currencyDescription": {
+      "en": "Select the preferred currency that can be used for the value calculation",
+      "ja": "価値計算に使用する優先通貨を選択してください",
+      "id": "Select the preferred currency that can be used for the value calculation"
+    },
+    "languageSetting": {
+      "en": "Language Preference",
+      "ja": "言語の設定",
+      "id": "Language Preference"
+    },
+    "languageDescription": {
+      "en": "Select the preferred language for the plugin interface",
+      "ja": "プラグインのインターフェースに使用する優先言語を選択してください",
+      "id": "Select the preferred language for the plugin interface"
     }
   };
 
