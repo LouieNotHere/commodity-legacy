@@ -42,7 +42,7 @@ export function getLocalizedText(key: string, language: string): string {
     "currencyDescription": {
       "en": "Select the preferred currency that can be used for the value calculation",
       "ja": "価値計算に使用する優先通貨を選択してください",
-      "id": "Pilih preferensi mata uang yang bisa digunakan untuk perhitungan"
+      "id": "Pilih preferensi mata uang yang bisa digunakan untuk perhitungan",
       "tl": "Pumili ng gustong pera na pwedeng magamit sa pagkalkula ng halaga"
     },
     "languageSetting": {
