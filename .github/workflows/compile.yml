@@ -1,0 +1,45 @@
+name: Compile Obsidian Plugin
+
+on:
+  push:
+    tags:
+      - "v*"
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Necessary Dependencies
+        run: npm install
+
+      - name: Compile TypeScript
+        run: npm run build
+
+      - name: Check Directory
+        run: dir
+
+      - name: Pack Plugin
+        run: |
+          mkdir release
+          cp manifest.json release/
+          cp styles.css release/ || true
+          cp main.js release/
+          cd release && zip -r ../commodity-plugin.zip .
+
+      - name: Export Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: commodity-legacy
+          path: commodity-plugin.zip
