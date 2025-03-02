@@ -18,6 +18,13 @@ This is not only for minor updates, but add some minor features and preserve the
 2. In the search bar, look for **Commodity (Legacy)**, and install it.
 3. Once it's installed, enable the plugin, and you're good to go.
 
+(or manually)
+
+1. Go to the repository's releases, and download the following files: `main.js`, `manifest.json`, and `styles.css`.
+2. Once downloaded, go to your file manager, locate your Obsidian Vault's `.obsidian/plugins/` and create a folder named `commodity-legacy`.
+3. Once the folder has been created, put the files inside that folder.
+4. Open Obsidian, go to **Settings > Community Plugins > Commodity (Legacy)**, and enable it.
+
 # How to use it?
 1. If you have the plugin disabled, enable it.
 2. Once enabled, go to the ribbon and look for **Commodity (Legacy): Calculate Vault Value**.
