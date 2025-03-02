@@ -35,7 +35,8 @@ export const CURRENCY_MULTIPLIERS: Record < string, number > = {
   "CHF": 0.9,
   "TWD": 31,
   "INR": 83,
-  "BND": 1.35
+  "BND": 1.35,
+  "IRR": 420000
 };
 
 export class CommoditySettingsTab extends PluginSettingTab {
@@ -74,7 +75,8 @@ export class CommoditySettingsTab extends PluginSettingTab {
           "CHF": "CHF - Swiss Franc",
           "TWD": "TWD - New Taiwan Dollar",
           "INR": "INR - Indian Rupee",
-          "BND": "BND - Brunei Dollar"
+          "BND": "BND - Brunei Dollar",
+          "IRR": "IRR - Iranian Rial"
         });
         
         dropdown.setValue(this.plugin.settings.currency);
