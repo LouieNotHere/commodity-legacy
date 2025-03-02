@@ -1,3 +1,12 @@
+/*
+
+  options.ts
+  This is a part of the main.ts file, but this adds the plugin options.
+  If you're willing to add more currencies, please add some options to the dropdown.
+  Once done, edit the main.ts file and add the symbol of the added currency.
+
+*/
+
 import { App, PluginSettingTab, Setting } from "obsidian";
 
 export interface CommoditySettings {
