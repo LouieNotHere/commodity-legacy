@@ -5,6 +5,10 @@
   If you're willing to add more currencies, please add some options to the dropdown.
   Once done, edit the main.ts file and add the symbol of the added currency.
 
+  For translation:
+  - There's no need to translate commodity in the specified language.
+  - The term "legacy" can be voluntary, meaning that it's your choice whether to translate it or not.
+
 */
 
 import { App, PluginSettingTab, Setting } from "obsidian";
@@ -97,7 +101,8 @@ export class CommoditySettingsTab extends PluginSettingTab {
       "en": "EN - English",
       "ja": "JA - 日本語",
       "id": "ID - Bahasa Indonesia",
-      "tl": "TL - Wikang Pilipino"
+      "tl": "TL - Wikang Pilipino",
+      "vi": "VI - Tiếng Việt"
     });
 
     dropdown.setValue(this.plugin.settings.language);
