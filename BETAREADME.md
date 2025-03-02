@@ -16,7 +16,7 @@ We recommend you to do some things before you proceed to install the plugin:
 - If you notice any **lag** or run into **issues**, try running the plugin in a smaller test vault first.
 
 ### 3️⃣ Compatibility  
-- **Commodity (Legacy) v1.0.0** is developed for **Obsidian v1.6.0+**. Using it on older versions **may cause errors**.  
+- **Commodity (Legacy) v1.1.0** is developed for **Obsidian v1.6.0+**. Using it on older versions **may cause errors**.  
 - If you encounter issues, check the **Obsidian console by pressing `Ctrl+Shift+I`** for error logs.
 
 ### 4️⃣ Reporting Issues  
