@@ -9,6 +9,10 @@
   - There is no need to translate Commodity, just leave it be.
   - The term "Legacy" could be voluntary, meaning that it's your choice whether to translate it or not.
 
+  Huge thanks to:
+  - CookedFishRX and @kntdys for the Indonesian localization
+  - @nekorin727 for the Vietnamese localization
+
 */
 
 export function getLocalizedText(key: string, language: string): string {
