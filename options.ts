@@ -11,13 +11,15 @@ import { App, PluginSettingTab, Setting } from "obsidian";
 
 export interface CommoditySettings {
   currency: string;
+  language: string;
 }
 
 export const DEFAULT_SETTINGS: CommoditySettings = {
   currency: "USD",
+  language: "en",
 };
 
-export const CURRENCY_MULTIPLIERS: Record < string, number > = {
+export const CURRENCY_MULTIPLIERS: Record<string, number> = {
   "USD": 1,
   "JPY": 150,
   "PHP": 50,
@@ -41,18 +43,18 @@ export const CURRENCY_MULTIPLIERS: Record < string, number > = {
 
 export class CommoditySettingsTab extends PluginSettingTab {
   plugin: any;
-  
+
   constructor(app: App, plugin: any) {
     super(app, plugin);
     this.plugin = plugin;
   }
-  
+
   display(): void {
     const { containerEl } = this;
-    
+
     containerEl.empty();
     containerEl.createEl("h2", { text: "Commodity Plugin Settings" });
-    
+
     new Setting(containerEl)
       .setName("Currency Preference")
       .setDesc("Select the preferred currency that can be used for the value calculation")
@@ -78,10 +80,27 @@ export class CommoditySettingsTab extends PluginSettingTab {
           "BND": "BND - Brunei Dollar",
           "IRR": "IRR - Iranian Rial"
         });
-        
+
         dropdown.setValue(this.plugin.settings.currency);
         dropdown.onChange(async (value) => {
           this.plugin.settings.currency = value;
+          await this.plugin.saveSettings();
+        });
+      });
+
+    new Setting(containerEl)
+      .setName("Language Preference")
+      .setDesc("Select the preferred language for the plugin interface")
+      .addDropdown(dropdown => {
+        dropdown.addOptions({
+          "en": "EN - English",
+          "ja": "JA - 日本語",
+          "id": "ID - Bahasa Indonesia"
+        });
+
+        dropdown.setValue(this.plugin.settings.language);
+        dropdown.onChange(async (value) => {
+          this.plugin.settings.language = value;
           await this.plugin.saveSettings();
         });
       });
