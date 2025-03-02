@@ -13,8 +13,8 @@ const LOCALIZED_STRINGS: Record<string, Record<string, string>> = {
     "ja": "Commodity：ボールトの価値を計算",
   },
   "modalTitle": {
-    "en": "Calculated Vault Value",
-    "ja": "計算されたボールトの価値",
+    "en": "Calculated Vault Value:",
+    "ja": "計算されたボールトの価値:",
   },
   "calculatingNotice": {
     "en": "Commodity (Legacy): Calculating the vault value...",
