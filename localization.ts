@@ -36,7 +36,7 @@ export function getLocalizedText(key: string, language: string): string {
     "currencySetting": {
       "en": "Currency Preference",
       "ja": "通貨の設定",
-      "id": "Preferensi Mata Uang"
+      "id": "Preferensi Mata Uang",
       "tl": "Kagustuhan sa Pera"
     },
     "currencyDescription": {
@@ -48,7 +48,7 @@ export function getLocalizedText(key: string, language: string): string {
     "languageSetting": {
       "en": "Language Preference",
       "ja": "言語の設定",
-      "id": "Preferensi Bahasa"
+      "id": "Preferensi Bahasa",
       "tl": "Kagustuhan sa Wika"
     },
     "languageDescription": {
