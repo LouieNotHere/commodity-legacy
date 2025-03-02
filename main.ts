@@ -16,24 +16,26 @@ import { abbreviateNumber } from "./abbrNum";
 
 export default class CommodityPlugin extends Plugin {
   settings: CommoditySettings;
+  language: string;
 
   async onload() {
     console.log("Commodity Plugin (Legacy) Loaded");
 
     await this.loadSettings();
-
+    // this.language = this.app.vault.getConfig("language") || "en";
+    this.language = (this.app as any).appId || "en";
     this.addSettingTab(new CommoditySettingsTab(this.app, this));
 
     console.log(`Current currency: ${this.settings.currency}`);
-    console.log(`Selected Language: ${this.settings.language}`);
+    console.log(`Detected Language: ${this.language}`);
 
     this.addRibbonIcon(
       "lucide-calculator",
-      getLocalizedText("ribbonTooltip", this.settings.language),
+      getLocalizedText("ribbonTooltip", this.language),
       async () => {
         const vaultStats = await calculateVaultStats(this.app.vault);
         const vaultValue = await calculateVaultValue(vaultStats, this.settings.currency, this.app.vault);
-        new VaultValueModal(this.app, vaultValue, this.settings.currency, this.settings.language).open();
+        new VaultValueModal(this.app, vaultValue, this.settings.currency, this.language).open();
       }
     );
   }
@@ -102,4 +104,91 @@ class VaultValueModal extends Modal {
   onClose() {
     this.contentEl.empty();
   }
+}
+
+interface VaultStats {
+  totalCharacters: number;
+  totalWords: number;
+  totalFiles: number;
+  totalSentences: number;
+}
+
+async function calculateVaultStats(vault: Vault): Promise<VaultStats> {
+  let totalCharacters = 0;
+  let totalWords = 0;
+  let totalFiles = 0;
+  let totalSentences = 0;
+
+  const files = vault.getMarkdownFiles();
+  totalFiles = files.length;
+
+  for (const file of files) {
+    const content = await vault.read(file);
+    totalCharacters += content.length;
+    totalWords += content.split(/\s+/).length;
+    totalSentences += (content.match(/[.!?]+/g) || []).length;
+  }
+
+  return { totalCharacters, totalWords, totalFiles, totalSentences };
+}
+
+async function calculateVaultValue(stats: VaultStats, currency: string, vault: Vault): Promise<number> {
+  const { totalCharacters: a, totalWords: b, totalFiles: c, totalSentences: d } = stats;
+  let value = (a / 122000) * (1 + (b / 130000)) + (c / 200) + (d / 21000);
+
+  const e = await getVaultAgeInDays(vault) / 60;
+
+  const finalValue = (value + e) * (CURRENCY_MULTIPLIERS[currency] || 1);
+  return Number(finalValue.toFixed(50));
+}
+
+async function getVaultAgeInDays(vault: Vault): Promise<number> {
+  try {
+    const configFile = vault.getAbstractFileByPath(".obsidian/app.json");
+
+    if (!configFile || !(configFile instanceof TFile)) {
+      console.warn("Vault creation date file not found. Returning 0.");
+      return 0;
+    }
+
+    const stats = await vault.adapter.stat(configFile.path);
+    if (!stats || stats.ctime === undefined) {
+      console.warn("Could not retrieve vault creation date. Returning 0.");
+      return 0;
+    }
+
+    const creationTime = stats.ctime;
+    const currentTime = Date.now();
+    const daysSinceCreation = (currentTime - creationTime) / (1000 * 60 * 60 * 24);
+
+    return daysSinceCreation;
+  } catch (error) {
+    console.error("Error fetching vault creation date:", error);
+    return 0;
+  }
+}
+
+function getCurrencySymbol(currency: string): string {
+  const symbols: Record<string, string> = {
+    "USD": "US$",
+    "JPY": "JP¥",
+    "PHP": "₱",
+    "IDR": "RP ",
+    "EUR": "€",
+    "GBP": "£",
+    "KRW": "₩",
+    "CNY": "CN¥",
+    "AUD": "AU$",
+    "HKD": "HK$",
+    "CAD": "CA$",
+    "MYR": "RM ",
+    "UAH": "₴",
+    "NZD": "NZ$",
+    "CHF": "Fr ",
+    "TWD": "NT$",
+    "INR": "₹",
+    "BND": "B$",
+    "IRR": "Rls ",
+  };
+  return symbols[currency] || "$";
 }
