@@ -11,6 +11,7 @@
 
 */
 
+import { CommoditySettingsTab } from "./options";
 import { App, PluginSettingTab, Setting } from "obsidian";
 import { getLocalizedText } from "./localization";
 
