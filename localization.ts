@@ -47,7 +47,7 @@ export function getLocalizedText(key: string, language: string): string {
     "languageDescription": {
       "en": "Select the preferred language for the plugin interface",
       "ja": "プラグインのインターフェースに使用する優先言語を選択してください",
-      "id": "Pilih preferensi bahasa untuk plugin antarmuka"
+      "id": "Pilih preferensi bahasa untuk antarmuka plugin"
     }
   };
 
