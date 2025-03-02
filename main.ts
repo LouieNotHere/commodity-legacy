@@ -170,7 +170,7 @@ function getCurrencySymbol(currency: string): string {
     "TWD": "NT\$",
     "INR": "₹",
     "BND": "B$",
-    "IRR": "Rls"
+    "IRR": "Rls "
   };
   return symbols[currency] || "$";
 }
