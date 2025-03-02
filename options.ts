@@ -8,6 +8,7 @@
 */
 
 import { App, PluginSettingTab, Setting } from "obsidian";
+import { getLocalizedText } from "./localization";
 
 export interface CommoditySettings {
   currency: string;
@@ -56,8 +57,8 @@ export class CommoditySettingsTab extends PluginSettingTab {
     containerEl.createEl("h2", { text: "Commodity Plugin Settings" });
 
     new Setting(containerEl)
-      .setName("Currency Preference")
-      .setDesc("Select the preferred currency that can be used for the value calculation")
+      .setName(getLocalizedText("currencySetting", this.language))
+      .setDesc(getLocalizedText("currencyDescription", this.language))
       .addDropdown(dropdown => {
         dropdown.addOptions({
           "USD": "USD - US Dollar",
@@ -89,8 +90,8 @@ export class CommoditySettingsTab extends PluginSettingTab {
       });
 
     new Setting(containerEl)
-  .setName("Language Preference")
-  .setDesc("Select the preferred language for the plugin interface")
+  .setName(getLocalizedText("languageSetting", this.language))
+  .setDesc(getLocalizedText("languageDescription", this.language))
   .addDropdown(dropdown => {
     dropdown.addOptions({
       "en": "EN - English",
